@@ -1,0 +1,19 @@
+\babel@toc {ngerman}{}
+\babel@toc {ngerman}{}
+\contentsline {chapter}{\numberline {1}Einleitung und Problemstellung}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Word2Vec}{2}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Word Embedding}{2}{section.2.1}%
+\contentsline {subsubsection}{SKIP-gram Model}{3}{section*.8}%
+\contentsline {subsubsection}{CBOW Model}{4}{section*.10}%
+\contentsline {chapter}{\numberline {3}Glove}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}The GloVe Method}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Vektordarstellung}{8}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Einleitung}{8}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Prozess}{8}{section.4.2}%
+\contentsline {subsubsection}{1. Schritt: Standardization}{8}{section*.13}%
+\contentsline {subsubsection}{2. Schritt: Berechnung der Kovarianzmatrix}{9}{section*.14}%
+\contentsline {subsubsection}{3. Berechnung der Eigenvektors und Eigenwerte}{9}{section*.15}%
+\contentsline {subsubsection}{4. Transformation der Daten}{11}{section*.17}%
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Ausblick}{12}{chapter.5}%
+\contentsline {chapter}{Glossar}{13}{appendix.A}%
+\contentsline {chapter}{Erklärung der Kandidatin / des Kandidaten}{14}{appendix.B}%
