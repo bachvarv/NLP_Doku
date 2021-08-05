@@ -3,17 +3,41 @@
 \contentsline {chapter}{\numberline {1}Einleitung und Problemstellung}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Word2Vec}{2}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Word Embedding}{2}{section.2.1}%
-\contentsline {subsubsection}{SKIP-gram Model}{3}{section*.8}%
-\contentsline {subsubsection}{CBOW Model}{4}{section*.10}%
+\contentsline {subsubsection}{SKIP-gram Model}{3}{section*.6}%
+\contentsline {subsubsection}{CBOW Model}{4}{section*.8}%
+\contentsline {subsection}{\numberline {2.1.1}Implementierung}{4}{subsection.2.1.1}%
 \contentsline {chapter}{\numberline {3}Glove}{5}{chapter.3}%
 \contentsline {section}{\numberline {3.1}The GloVe Method}{5}{section.3.1}%
-\contentsline {chapter}{\numberline {4}Vektordarstellung}{8}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Einleitung}{8}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Prozess}{8}{section.4.2}%
-\contentsline {subsubsection}{1. Schritt: Standardization}{8}{section*.13}%
-\contentsline {subsubsection}{2. Schritt: Berechnung der Kovarianzmatrix}{9}{section*.14}%
-\contentsline {subsubsection}{3. Berechnung der Eigenvektors und Eigenwerte}{9}{section*.15}%
-\contentsline {subsubsection}{4. Transformation der Daten}{11}{section*.17}%
-\contentsline {chapter}{\numberline {5}Zusammenfassung und Ausblick}{12}{chapter.5}%
-\contentsline {chapter}{Glossar}{13}{appendix.A}%
-\contentsline {chapter}{Erklärung der Kandidatin / des Kandidaten}{14}{appendix.B}%
+\contentsline {chapter}{\numberline {4}Der Transformer}{8}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Struktur des Transformers}{8}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Positionale Einbettung}{9}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Encoder und Decoder}{10}{subsection.4.1.2}%
+\contentsline {subsubsection}{Multi-Head-Attention Layer}{10}{section*.12}%
+\contentsline {subsubsection}{Feed Forward Network}{12}{section*.14}%
+\contentsline {subsubsection}{Masked Multi-Head Attention Layer}{13}{section*.15}%
+\contentsline {section}{\numberline {4.2}Implementierung}{13}{section.4.2}%
+\contentsline {subsubsection}{Die Klasse}{13}{section*.16}%
+\contentsline {subsubsection}{Encoder}{14}{section*.17}%
+\contentsline {subsubsection}{Decoder}{14}{section*.18}%
+\contentsline {chapter}{\numberline {5}BERT}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Struktur des BERTs}{15}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Implentierung}{16}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Pre-Training a BERT-Model}{16}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Erstellen von Eingabe und Klasse}{17}{subsection.5.2.2}%
+\contentsline {subsubsection}{BERT Class}{19}{section*.19}%
+\contentsline {subsubsection}{Optimizer und Loss-Funktion}{20}{section*.21}%
+\contentsline {subsection}{\numberline {5.2.3}Fine-Tuning a BERT-Model}{21}{subsection.5.2.3}%
+\contentsline {subsubsection}{BERT-Model}{21}{section*.22}%
+\contentsline {subsubsection}{Datensatz}{22}{section*.23}%
+\contentsline {subsubsection}{Optimizer und Fehlerfunktion}{23}{section*.24}%
+\contentsline {chapter}{\numberline {6}Vektordarstellung}{24}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Einleitung}{24}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Prozess}{24}{section.6.2}%
+\contentsline {subsubsection}{1. Schritt: Standardization}{24}{section*.25}%
+\contentsline {subsubsection}{2. Schritt: Berechnung der Kovarianzmatrix}{25}{section*.26}%
+\contentsline {subsubsection}{3. Berechnung der Eigenvektors und Eigenwerte}{25}{section*.27}%
+\contentsline {subsubsection}{4. Transformation der Daten}{27}{section*.29}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung und Ausblick}{28}{chapter.7}%
+\contentsline {chapter}{Literaturverzeichnis}{29}{chapter*.30}%
+\contentsline {chapter}{Glossar}{30}{appendix.A}%
+\contentsline {chapter}{Erklärung der Kandidatin / des Kandidaten}{31}{appendix.B}%

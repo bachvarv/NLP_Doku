@@ -31,9 +31,8 @@ Die zwei Matrizen sind identisch, jedoch die Kontextmatrize ist die transponiert
 
 Der Abbildung \ref{skip} nach besteht das neuronale Netz aus drei Schichten. Im Hiddenlayer steht ein Vektor, der abhängig von unsere Eingabe den Wortvektor repräsentiert. Die Ausgabe ist ein softmax
 
-
 \subsubsection{CBOW Model}
-Die Kontextwörter sind die Eingabe in dem CBOW-Model und das Model ratet der Targetwort.
+Die Kontextwörter sind die Eingabe in dem CBOW-Model und das Model ratet der Targetwort. Die zwei Modelle besitzen die gleiche Anzahl an Schichten. Das CBOW-Model ist ein umgedrehtes SKIP-gram-Model, jedoch die Eingabe besteht aus $\emph{w}$-Viele Vektoren statt nur eins. Als nächstes stellt die \ref{cbow} Abbildung die beschriebene Struktur.
 
 \begin{figure}
 	\centering
@@ -41,3 +40,7 @@ Die Kontextwörter sind die Eingabe in dem CBOW-Model und das Model ratet der Ta
 	\caption{CBOW Word2Vec Model}
 	\label{cbow}
 \end{figure}
+
+Die Struktur des CBOW-Models besteht wieder aus eine Matrix für das Embedding der Target- und Kontextwörter. Die größe der Matrizen hängt von der ausgewählten Hyperparameter und die Größe des Datensatzes. Die Anzahl der verwendeten Inputvektoren entspricht die größe des gesetzten Window (Kontextfenster).
+
+\subsection{Implementierung}

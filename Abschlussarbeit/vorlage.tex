@@ -35,6 +35,7 @@
 \usepackage{color}				% Farbverwaltung
 %\usepackage{ngerman} 			% Neue deutsche Rechtsschreibung
 \usepackage[english, ngerman]{babel}
+\usepackage{enumitem}
 %\usepackage[latin1]{inputenc} 	% Erm�glicht Umlaute-Darstellung
 \usepackage[utf8]{inputenc}  	% Erm�glicht Umlaute-Darstellung unter Linux (je nach verwendetem Format)
 
@@ -42,8 +43,10 @@
 \usepackage{listings} 			% Code-Darstellung
 \lstset
 {
-	basicstyle=\scriptsize, 	% print whole listing small
+	basicstyle=\ttfamily,	% print whole listing small
 	keywordstyle=\color{blue}\bfseries,
+	frame=single,
+	columns=fullflexible,
 								% underlined bold black keywords
 	identifierstyle=, 			% nothing happens
 	commentstyle=\color{red}, 	% white comments
@@ -56,8 +59,11 @@
 	rulesepcolor=\color{blue},
 	numbers=left,
 	linewidth=146mm,
-	xleftmargin=8mm
+	xleftmargin=8mm,
+	breaklines=true,
+	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
 }
+
 \usepackage{textcomp} 			% Celsius-Darstellung
 \usepackage{amssymb,amsfonts,amstext,amsmath}	% Mathematische Symbole
 \usepackage[german, ruled, vlined]{algorithm2e}
@@ -74,8 +80,8 @@
 %--------------------------------------------------------------------------
 \begin{document}
 %------------------------- Titelblatt -------------------------------------
-\title{Titel der Arbeit auf Deutsch}
-\subtitle{English Title}
+\title{Natural Language Processing und Text übersetzung}
+\subtitle{Natural Language Processing and Text Translation}
 %---- Die Art der Dokumentation kann hier ausgew�hlt werden---------------
 %\project{Bachelor-Projektarbeit}
 %\project{Bachelor-Abschlussarbeit}
@@ -84,9 +90,9 @@
 %\project{Seminar zur Vorlesung ...}
 %\project{Hausarbeit zur Vorlesung ...}
 %--------------------------------------------------------------------------
-\supervisor{Titel Vorname Name} 		% Betreuer der Arbeit
+\supervisor{Prof. Dr. Hans Beise} 		% Betreuer der Arbeit
 \author{Bachvarov, Vladislav} 							% Autor der Arbeit
-\address{Ort,} 							% Im Zusammenhang mit dem Datum wird hinter dem Ort ein Komma angegeben
+\address{Trier,} 							% Im Zusammenhang mit dem Datum wird hinter dem Ort ein Komma angegeben
 \submitdate{Abgabedatum} 				% Abgabedatum
 %\begingroup
 %  \renewcommand{\thepage}{title}
@@ -104,8 +110,8 @@
 \input{chapters/Vorwort}				% Vorwort (optional)
 \input{chapters/Kurzfassung} 			% Kurzfassung Deutsch/English
 \tableofcontents 						% Inhaltsverzeichnis
-\listoffigures 							% Abbildungsverzeichnis (optional)
-\listoftables 							% Tabellenverzeichnis (optional)
+%\listoffigures 							% Abbildungsverzeichnis (optional)
+%\listoftables 							% Tabellenverzeichnis (optional)
 %--------------------------------------------------------------------------
 \mainmatter                        		% Hauptteil (ab hier arab. Seitenzahlen)
 %--------------------------------------------------------------------------
@@ -113,6 +119,8 @@
 \input{chapters/EinleitungProblemstellung}
 \include{chapters/Word2Vec}
 \input{chapters/Glove}
+\input{chapters/Transformer}
+\input{chapters/Bert.tex}
 \include{chapters/Visualization}
 %\input{chapters/WeitereKapitel}
 %\input{chapters/Bausteine}
