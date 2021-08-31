@@ -19,25 +19,25 @@
 \contentsline {subsubsection}{Die Klasse}{13}{section*.16}%
 \contentsline {subsubsection}{Encoder}{14}{section*.17}%
 \contentsline {subsubsection}{Decoder}{14}{section*.18}%
-\contentsline {chapter}{\numberline {5}BERT}{15}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Struktur des BERTs}{15}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Implentierung}{16}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Pre-Training a BERT-Model}{16}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Erstellen von Eingabe und Klasse}{17}{subsection.5.2.2}%
-\contentsline {subsubsection}{BERT Class}{19}{section*.19}%
-\contentsline {subsubsection}{Optimizer und Loss-Funktion}{20}{section*.21}%
-\contentsline {subsection}{\numberline {5.2.3}Fine-Tuning a BERT-Model}{21}{subsection.5.2.3}%
-\contentsline {subsubsection}{BERT-Model}{21}{section*.22}%
-\contentsline {subsubsection}{Datensatz}{22}{section*.23}%
-\contentsline {subsubsection}{Optimizer und Fehlerfunktion}{23}{section*.24}%
-\contentsline {chapter}{\numberline {6}Vektordarstellung}{24}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Einleitung}{24}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Prozess}{24}{section.6.2}%
-\contentsline {subsubsection}{1. Schritt: Standardization}{24}{section*.25}%
-\contentsline {subsubsection}{2. Schritt: Berechnung der Kovarianzmatrix}{25}{section*.26}%
-\contentsline {subsubsection}{3. Berechnung der Eigenvektors und Eigenwerte}{25}{section*.27}%
-\contentsline {subsubsection}{4. Transformation der Daten}{27}{section*.29}%
-\contentsline {chapter}{\numberline {7}Zusammenfassung und Ausblick}{28}{chapter.7}%
-\contentsline {chapter}{Literaturverzeichnis}{29}{chapter*.30}%
-\contentsline {chapter}{Glossar}{30}{appendix.A}%
-\contentsline {chapter}{Erklärung der Kandidatin / des Kandidaten}{31}{appendix.B}%
+\contentsline {chapter}{\numberline {5}BERT}{16}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Struktur des BERTs}{16}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Implentierung}{17}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Pre-Training a BERT-Model}{17}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Erstellen von Eingabe und Klasse}{18}{subsection.5.2.2}%
+\contentsline {subsubsection}{BERT Class}{20}{section*.19}%
+\contentsline {subsubsection}{Optimizer und Loss-Funktion}{21}{section*.21}%
+\contentsline {subsection}{\numberline {5.2.3}Fine-Tuning a BERT-Model}{22}{subsection.5.2.3}%
+\contentsline {subsubsection}{BERT-Model}{22}{section*.22}%
+\contentsline {subsubsection}{Datensatz}{23}{section*.23}%
+\contentsline {subsubsection}{Optimizer und Fehlerfunktion}{24}{section*.24}%
+\contentsline {chapter}{\numberline {6}Vektordarstellung}{25}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Einleitung}{25}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Prozess}{25}{section.6.2}%
+\contentsline {subsubsection}{1. Schritt: Standardization}{25}{section*.25}%
+\contentsline {subsubsection}{2. Schritt: Berechnung der Kovarianzmatrix}{26}{section*.26}%
+\contentsline {subsubsection}{3. Berechnung der Eigenvektors und Eigenwerte}{26}{section*.27}%
+\contentsline {subsubsection}{4. Transformation der Daten}{28}{section*.29}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung und Ausblick}{29}{chapter.7}%
+\contentsline {chapter}{Literaturverzeichnis}{30}{chapter*.30}%
+\contentsline {chapter}{Glossar}{31}{appendix.A}%
+\contentsline {chapter}{Erklärung der Kandidatin / des Kandidaten}{32}{appendix.B}%

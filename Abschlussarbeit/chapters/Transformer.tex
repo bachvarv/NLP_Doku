@@ -182,5 +182,13 @@ Hier erkennt man die zwei Einbettungsschichten, eine für die Tokeneinbettung un
 
 \subsubsection{Decoder}
 
+Die Decoder-Klasse wird ebenso in eine Separate Klasse ausgelagert. Die Programzeilen \ref{trans_dec} spiegeln die vorgestellte Struktur des Decoders im oberen Kapitel \ref{transformer}: 
 
+\begin{lstlisting}[language=Python, caption={Decoder Implementation}, label=trans_dec]
+self.embedding = Embedding(target_vocab_size, d_model)
+self.pos_encoding = self.positional_encoding(maximum_position_encoding, d_model)
+self.dec_layers = [DecoderLayer(d_model, num_heads, dff, rate) for _ in range(num_layers)]
+\end{lstlisting}
+
+Entsprechend werden in Zeile 4 die Decoder-Schichten erstellt. Ebenso wird in Zeilen 1 und 2 die zwei Einbettungsoperationen für die Einbettungsschicht definiert. Diese Layers können sich von der Einbettungsschichten im Encoder unterscheiden.
 
