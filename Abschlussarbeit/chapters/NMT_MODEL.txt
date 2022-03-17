@@ -1,0 +1,21 @@
+Die Neural Machine Translation Model ist eins der Komplexeren Modele, die in seinem Kern ein BERT-Model und ein Transformer. Die Kombination der beiden Modelen bildet einen Supertransformer, sodass BERT und Transformer den NMT-Model ausbauen. Das BERT-Model wird für die Einbettung der Eingabe, welche Ausgabe in den Encoder und Decoder des Transformermodels später einfließt. Der Encoder muss somit keine eigene Einbettung für seine Eingabe berechnet, doch der Decoder muss seine eigene Einbettung berechnen. Für eine detailierte Erklärung der beiden Modellen kann als Referenz die früheren Kapitel benutzt werden (Kapitel \ref{} und \reft{}). Es wird jedoch der Fluß der Informationen hier gegeben:
+
+Schritt-1: Bei einer Eingabe x € X, BERT bettet den x-Vektor als H_B = BERT(x). Wo H_B ist die Ausgabe des letzten Layers vom BERT. h_{B,i} € H_B stellt den i-th Wort in x.
+
+Schritt-2: Sei H^l_E gegeben, was die Darstellung der versteckten l-ten Schicht beschreibt und H^0_E ist die Einbettung der Sequenz x. Der i-te Element aus H^l_E wird als h^l_i für 0<i<[l_x] definiert (begrenzt durch die Anzahl der Neuronen in jeder versteckten Schicht l). Die Berechnung von h^l_i ist gegeben:
+	~h^l_i = 1/2(attn_S(h^{l-1}_i, H^{l-1}_E, H^{l-1}) + attn_B(h^{l-1}_i, H_B, H_B)), für 0<i<[l_x],
+Wo attn_S und attn_B sind Attention-Modele mit unterschiedliche Parametern (Die Definition ist in Kapitel \ref{} zu finden). Die beiden Funktionen sind wie folgt definiert:
+	attn(q, K, V) ist ein Attention-Schicht, mit q, K und V bedeuten entsprechend query, key und value. q ist ein 	d_q-dimensionaler Vektor (d € Z(ganze Zahlen)), K und V sind zwei Mengen mit |K| = |V|. Jeder Vektor k_i € K und 	v_i € V sind dk/dv-dimensional, für i € [|K|]. Das Attention Model funktioniert wie folgt:
+		attn(q, K, V) = \Sum^{|V|}_{i=1} a_i*W_v*v_i, a_i = \frac{exp((W_q*q)^T(W_k*k_i)}{Z}, 
+			Z = \Sum^{|K|}_{i=1} exp((W_q*q)^T)W_k*k_i)),
+	W_q, W_k und W_v sind die Parametern die gelernt werden müssen.
+
+Weiterhin werden die berechneten Attentions nach ihrer Normierung dem Feed-Forward-Network gegeben und schließlich wird die Ausgabe normiert. Die Ausgabe aus der letzten Schicht ist durch H^L_E definiert.
+
+Schritt-3: die Eingabe im Decoder-Layer l wird durch S^l_{<t} für den Zeitpunkt t, S^l_{<t} = (s^l_1, · · · , s^l_{t−1}). s^0_1 ist ein besonderer Zeichen, der den Anfang der Sequenz bestimmt und s^0_t ist die Voraussage des Models zur bestimmten Zeitpunkt t. Im Schicht l erfolgt folgendes:
+	\begin{equation} \label{step_3}
+	s^lt = attn_S (s^{l−1}t , S^{l−1}_{<t+1}, S^{l−1}_{<t+1});
+ 	̃s^lt = 1/2(attn_B (ˆs^l_t, H_B , H_B ) + attn_E (ˆs^l_t, H^L_E , H^L_E )), s^l_t = FFN( ̃s^l_t).
+	\end{equation}
+
+Die attn_S, attn_B und attn_E stellen entsprechend Self-, BERT-Decoder- und Encoder-Decoder-Attention dar. \ref{step_3} iteriert über die Schichten und liefert als Ergebnis s^L_t. Die Ausgabe fließt durch eine Dense-Schicht und schließlich mit einer Softmax-Funtion transformiert, sodass das t-te Wort ^y_t erraten wird. Die Entschlusselung verläuft bis ein Endzeichen erreicht wird, bzw. bis die Ende der Sequenz verarbeitet wird.

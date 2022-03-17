@@ -43,7 +43,7 @@ Als nächstes wird betrachtet, wie der PE-Vektor zum Einbettungs-Vektor addiert 
 
 Encoder und Decoder sind die essenziellen Bestandteile vom Transformer. Der Encoder erhält die schon veränderten Daten und führt sie durch ein Attention- und ein Feed Forward Network-Layer. Zwischen jeder Unterschicht besteht eine residierte Verbindung (siehe Abbildung \ref{transformer}), sodass die Ausgaben vom letzten Unterlayer mit den Ausgaben vom Aktuellen addiert und weiterhin normiert werden. Der Decoder besitzt eine Unterschicht mehr als der Encoder. In der Transformer beinhaltet der Decoder drei Schichten (siehe Abbildung \ref{transformer}). Die letzten zwei sind die selben wie im Encoder. Die erste Unterschicht im Decoder ist eine Masked-Multi-Head-Attention-Schicht. Die Verbindung zwischen Encoder und Decoder erfolgt in der zweiten Unterschicht - zwar in der MHA-Schicht. Da werden die Ausgaben vom Encoder und vom MMHA-Schicht zusammengeführt. Nach der Bearbeitung liefert das Model einen potenziellen Satz, der abhängig vom Aufgaben Stellung, die gesuchte Antwort sein sollte. In diesem Fall ist es die Übersetzung aus dem Englishen ins Spanische. In den folgenden Unterkapiteln werden die Unterschichten ins Details untersucht.
 
-\subsubsection{Multi-Head-Attention Layer}
+\subsubsection{Multi-Head-Attention Layer} \label{MHA_Layer}
 Der Multi-Head-Attention Layer kommt in den beiden Einheiten vor. Dieser Schicht folgt eine Normierungsschicht, die die Ausgaben aus dem MHA-Schicht und die Residial-Daten aus vorheriger Schicht addiert und normiert.
 
 Die Eingabe in dem Multi-Head-Attention-Layer vom Encoder ist der Vektor, der die positionale und eingebettete Angaben vom Text erhählt. Im Decoder erhält der MHA-Layer die Eingaben von einer Masked-Multi-Head-Attention-Schicht, und somit ist die Information bis zum aktuell betrachteten Punkt. Der unteschied besteht darin, dass die Information für den Encoder komplett verfügbar ist, und im Decoder wird diese maskiert, und so lernt das Model zu raten. Darin besteht der Unterschied zwischen den MHA im Encoder und Decoder. 
@@ -100,7 +100,7 @@ Die Normierungsschicht führt folgende Berehcnungen dann aus:
 \begin{equation}
 	LayerNorm(v) = \gamma * \frac{v - \mu}{\delta} + \beta.
 \end{equation}
-Die Veraiblen bedeuten folgendes:
+Die Variablen bedeuten folgendes:
 
 \begin{itemize}[leftmargin=1cm]
 		\item $\mu$ ist der Durchschnitt von $v$ mit Dimensionen d:
