@@ -36,4 +36,8 @@
 {\sc Wierenga, Rick}: {\em An Empirical Comparison of Optimizers for Machine
   Learning Models}, 2021.
 
+\bibitem[Zhu20]{NMT:20}
+{\sc Zhu, Jinhua}: {\em Incorporating BERT into Neural Machine Translation}.
+\newblock Published for ICLR 2020, 2020.
+
 \end{thebibliography}

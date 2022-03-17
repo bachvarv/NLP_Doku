@@ -1,6 +1,21 @@
-\chapter{Neural Machine Translation}
+\chapter{BERT-Basierte Modelle}
 
-Die Neural Machine Translation Model (NMT) ist eins der Komplexeren Modele, die in seinem Kern ein BERT-Model und ein Transformer. Die Kombination der beiden Modelen bildet einen Supertransformer, sodass BERT und Transformer den NMT-Model ausbauen. Das BERT-Model wird für die Einbettung der Eingabe, welche Ausgabe in den Encoder und Decoder des Transformermodels später einfließt. Der Encoder muss somit keine eigene Einbettung für seine Eingabe berechnet, doch der Decoder muss seine eigene Einbettung berechnen. Für eine detailierte Erklärung der beiden Modellen kann als Referenz die früheren Kapitel benutzt werden (Kapitel \ref{Transformer} und \ref{BERT}). Es wird jedoch der Fluß der Informationen hier gegeben:
+In den letzten zwei Kapiteln wurde die Struktur des BERT-Models \ref{BERT}, sowie vom Transformer \ref{transformer},  vorgestellt. Diese können ausgebaut werden, um beliebige Aufgaben zu lösen. In diesem Kapitel stelle ich die entsprechenden Modelen vor, mit denen versucht wurde, Sätze in Leichte Sprache zu übersetzen. Die Struktur der Modele wird zuerst dargestellt und schließlich die Vorführung gegeben, wie diese Modele in Python eingesetzt werden können.
+
+\section{Neural Machine Translation Model}
+Das Neural Machine Translation Model (NMT-Model) ist eins der Komplexeren Modele, das in seinem Kern aus einem BERT-Model und einem Transformer besteht. Die Kombination der beiden Modelen bildet einen Supertransformer, sodass BERT und Transformer den NMT-Model aufbauen.
+
+\subsection{Struktur des NMT-Model}
+Die Struktur des Models ist durch die folgende Abbildung \ref{nmt_model_figure} gegeben:
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5]{images/NMT-Model.png}
+	\caption{NMT-Model Struktur \cite{NMT:20}}
+	\label{nmt_model_figure}
+\end{figure}
+
+Das BERT-Model wird für die Einbettung der Eingabe, welche Ausgabe in den Encoder und Decoder des Transformermodels später einfließt. Der Encoder muss somit keine eigene Einbettung für seine Eingabe berechnet, doch der Decoder muss seine eigene Einbettung berechnen. Für eine detailierte Erklärung der beiden Modellen kann als Referenz die früheren Kapitel benutzt werden (Kapitel \ref{Transformer}). Es wird jedoch der Fluß der Informationen hier gegeben:
 
 Schritt-1: Bei einer Eingabe \textit{x} $\in$ \textit{X}, BERT bettet den \textit{x}-Vektor als $H_B = BERT(x)$ ein. Wo $H_B$ ist die Ausgabe des letzten Layers vom BERT. $h_{B,i} \in H_B$ stellt den \textit{i}-th Wort in x.
 
@@ -24,4 +39,9 @@ Schritt-3: die Eingabe im Decoder-Layer \textit{l} wird durch $S^l_{<t}$ für de
 \end{subequations}
 
 
-Die $attn_S$, $attn_B$ und $attn_E$ stellen entsprechend Self-, BERT-Decoder- und Encoder-Decoder-Attention dar. Eqn. \eqref{step_3} iteriert über die Schichten und liefert als Ergebnis $s^L_t$. Die Ausgabe fließt durch eine Dense-Schicht und schließlich mit einer Softmax-Funtion transformiert, sodass das t-te Wort $\^y_t$ erraten wird. Die Entschlusselung verläuft bis ein Endzeichen erreicht wird, bzw. bis die Ende der Sequenz verarbeitet wird.
+Die $attn_S$, $attn_B$ und $attn_E$ stellen entsprechend Self-, BERT-Decoder- und Encoder-Decoder-Attention dar. Eqn. \eqref{step_3} iteriert über die Schichten und liefert als Ergebnis $s^L_t$. Die Ausgabe fließt durch eine Dense-Schicht und schließlich mit einer Softmax-Funtion transformiert, sodass das t-te Wort $\^y_t$ erraten wird. Die Entschlusselung verläuft bis ein Endzeichen erreicht wird, bzw. bis die Ende der Sequenz verarbeitet wird. \cite{NMT:20}
+
+\subsection{Implementierung}
+
+Aus dem Artikel wird nicht genau klar, wie diese Model zu implementieren ist. Aus diesem Grund werden mehrere Versionen des Models versucht. Die Modele unterscheiden sich in der Embedding-Strategie. Das erste Model verwendent das BERT-Model für die Einbettung am Anfang und später im Decoder-Layer. Für die Implementierung werden die Bibliotheken \textit{tensorflow} und \textit{transformers} benutzt
+
