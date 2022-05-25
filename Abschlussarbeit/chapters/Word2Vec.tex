@@ -1,46 +1,46 @@
-\chapter{Word2Vec}
+\chapter{Word2Vec}\label{word2vec}
 
-In dieser Kapitel wird das Verfahren "Word2Vec" durch die Nutzung von Neuronalem Netz vorgestellt. Word2Vec ist eine Darstellung von Wörtern mit Vecoren, was auch aus die Abkürzung klar wird - Word ist klar; 2 - to; und Vec - Vector und das ganze "word to vector". Dieses Model ist am meisten  in der Natural Laguage Processing (NLP) verbreitet und wird in vielen Bereichen der Informatik genutzt, unter anderem in Spamfilterung und Dokumentenanalyse. Jedoch diese Technik besagt nur wie die Wörter eines Textes dargestellen werden können. Das Verfahren, bei dem die möglichst passenden Vektoren in einem ausgewählten Text, auch Corpus genant, gelernt werden, heißt Word Embeddings. Bei dieser Technik wird ein Neuronales Netzt eigesetzt. Die Vorgehensweise und die Idee wird folglich erklärt.
+In diesem Kapitel wird das Verfahren "Word2Vec" durch die Nutzung von neuronalem Netz vorgestellt. Word2Vec ist eine Darstellung von Wörtern mit Vektoren, was auch die Abkürzung erklärt. \textit{Word} steht für \textit{Wort}, \textit{2} steht für \textit{to}, also zu, und \textit{Vec} steht für \textit{Vector}. Diese Wortrepräsentation wird in der Natural Laguage Processing (NLP) benutzt und findet Anwendung in Bereichen wie Spamfilterung und Dokumentenanalyse. Jedoch erklärt diese Technik nur, wie die Wörter eines Textes dargestellt werden können. Das Verfahren, bei dem die möglichst passenden Vektoren in einem ausgewählten Text, auch Corpus genant, gelernt werden, heißt Word Embedding. Bei dieser Technik wird ein neuronales Netz eigesetzt. Die Vorgehensweise und die Idee wird folglich erklärt.
 
 \section{Word Embedding}
 
-Wie es schon in der Einleitung erwähnt wurde, Word Embedding ist der Prozess, bei dem die Wörter eines Textes in mathematischen Vektoren gewandelt werden. Zuerst muss der Corpus vorbeiretet werden. Ich stelle hier nur die Theorie und in einer späteren Kapitel (!? WICHTIG WELCHE GENAU!?) gehe ich tiefer in dem Programmcode.
+Wie bereits in der Einleitung erwähnt wurde, ist Word Embedding ein Prozess, bei dem die Wörter eines Textes in Vektoren umgewandelt werden. 
 
-\!!! DAS HIER GEHÖRT IN EINE ANDERE KAPITEL !!!
-!!! DIE KAPITEL FÜR TEXTVORBEREITUNG ODER SOWAS!!!
+%Zuerst muss der Corpus vorbeiretet werden. Ich stelle hier nur die Theorie und in einer späteren Kapitel (!? WICHTIG WELCHE GENAU!?) gehe ich tiefer in dem Programmcode.
+%
+%\!!! DAS HIER GEHÖRT IN EINE ANDERE KAPITEL !!!
+%!!! DIE KAPITEL FÜR TEXTVORBEREITUNG ODER SOWAS!!!
+%
+%Als der Text vorbeitet ist, sodass es von Sonderzeichen und alle unnötigen Zeichen bereinigt wird. Wenn der Text vorbeireitet ist, werden die Wörter aus dem Corpus bestimmt und jeder erhält einen Index. Üblicherweise werden die Wörter nach ihrer Häufigkeit angeordnet. Das häufigste Wort erhält somit den Index 1. Als nächstes werden die Wörter im Corpus durch ihren Index ersetzt, um alle Trainingspaare fürs Lernen generiert zu werden. Dies erfolgt in dem es durch das Corpus iteriert und in einem bestimmten Fenster, oder in der Literatur auch als Window gezeichnet, alle Contextwörter und den Targetwort ausgelesen werden. Das Targetwort ist das Wort in der Mitte, während die Wörter um das Targetwort entsprechend die Kontextwörter. 
+%
+%!!! BIS HIER MUSS WEG !!!!
 
-Als der Text vorbeitet ist, sodass es von Sonderzeichen und alle unnötigen Zeichen bereinigt wird. Wenn der Text vorbeireitet ist, werden die Wörter aus dem Corpus bestimmt und jeder erhält einen Index. Üblicherweise werden die Wörter nach ihrer Häufigkeit angeordnet. Das häufigste Wort erhält somit den Index 1. Als nächstes werden die Wörter im Korpus durch ihren Index ersetzt, um alle Trainingspaare fürs Lernen generiert zu werden. Dies erfolgt in dem es durch das Corpus iteriert und in einem bestimmten Fenster, oder in der Literatur auch als Window gezeichnet, alle Contextwörter und den Targetwort ausgelesen werden. Das Targetwort ist das Wort in der Mitte, während die Wörter um das Targetwort entsprechend die Kontextwörter. 
-
-!!! BIS HIER MUSS WEG !!!!
-
-In der Literatur werden zwei Arten von Wort2Vec Modelle - SKIP-gram und CBOW (Continous Bag of Words). Beide Modelle verwenden ein Neuronales Netz mit einem oder zwei versteckten Schichten (siehe !!KAPITEL MIT DEM PROGRAMMCODE!!). Die beiden Methoden unterscheiden sich nach ihren Ein- und Ausgaben.   
+In der Literatur spricht man von zwei Arten von Wort2Vec Methoden - SKIP-gram und CBOW (Continous Bag of Words) \cite{Ali:19}. Beide Verfahren verwenden ein neuronales Netz. Die beiden Methoden unterscheiden sich nach ihren Ein- und Ausgaben.   
 
 \subsubsection{SKIP-gram Model}
-Bei dem SKIP-gram-Model fließen die Targetwörter als Eingabe und das Model versucht ein Kontextwort zu raten. Hier ist die Struktur eines Skip-gram Models:
+Bei dem SKIP-gram-Modell fließen die Targetwörter als Eingabe und das Modell versucht ein Kontextwort zu raten. Hier ist die Struktur eines Skip-gram Modells gegeben \cite{Ali:19}:
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{images/SKIP_Model.png}
+	\includegraphics[scale=0.6]{images/SKIP_Model.png}
 	\caption{Skip-gram Word2Vec Model}
 	\label{skip}
 \end{figure}
 
-Aus der Abbildung \ref{skip} ist es zu entnehmen, dass ein Skip-gram Model aus einer hidden Schicht und zwei Eigabeschichten. Die Eingabe sowie die Ausgabe ist ein Vektor, der aus $\emph{V}$ Componente besteht. Das entspricht die größe des Wörterbuchs (engl. Vocabulary). Das versteckte Schicht besteht aus $\emph{D}$ Variablen und stellt einen Vektor dar. Die Dimensionalität dieses Vektors nimmt üblich einen Wert zwischen 25 und 300. Diese Variablen können auch als Eigenschaften für die Wörter betrachtet werden. Je mehr Kriterien es untersucht werden, desto besser die Beziehung zwischen Wörtern wiederspiegelt werden kann. Die Ausgabe ist wieder einen $\emph{V-dimensionalen}$ Vektor. Jedoch die Ausgabe ist kein One-Hot Vektor mehr, der das Kontextwort wiedergibt, sondern einen Wahrscheinlichkeitsvektor, dass der Wort mit der entsprechenden Index der richtige Contextwort ist.
+Der Abbildung \ref{skip} ist zu entnehmen, dass ein Skip-gram Modell aus einer versteckten Schicht, eine Ein- und eine Ausgabeschicht besteht. Die Eingabe sowie die Ausgabe ist ein Vektor, der aus $\emph{V}$ Komponenten besteht. $\emph{V}$ entspricht der Größe des Wörterbuchs (engl. Vocabulary). Die versteckte Schicht besteht aus $\emph{D}$ Variablen und stellt einen Vektor dar. $\emph{D}$ nimmt üblicherweise einen Wert zwischen 25 und 300. Diese Variablen können auch als Eigenschaften für die Wörter betrachtet werden. Je mehr Kriterien untersucht werden, desto besser können die Beziehungen zwischen den Wörtern dargestellt werden. Die Ausgabe ist wieder ein $\emph{V-dimensionaler}$ Vektor. Jedoch ist die Ausgabe kein One-Hot Vektor mehr, sondern ein Wahrscheinlichkeitsvektor, der die Wahrscheinlichkeiten für jedes Wort aus dem Corpus beinhaltet.
 
-Die zwei Matrizen sind identisch, jedoch die Kontextmatrize ist die transponierte Embeddingsmatrize. Diese Matrix beinhaltet unsere Wortvektoren.
+Die zwei Matrizen sind identisch, jedoch ist die Kontextmatrix die transponierte Embeddingsmatrix (\cref{skip}). In der Matrix sind unsere Wortvektoren zu finden.
 
-Der Abbildung \ref{skip} nach besteht das neuronale Netz aus drei Schichten. Im Hiddenlayer steht ein Vektor, der abhängig von unsere Eingabe den Wortvektor repräsentiert. Die Ausgabe ist ein softmax
+Die Multiplikation der Eingabe mit der Embedding-Matirx liefert den ausgeblendeten Schichtvektor. Eine weitere Multiplikation mit der Context-Matrix berechnet wiederum die Ausgabe.
 
 \subsubsection{CBOW Model}
-Die Kontextwörter sind die Eingabe in dem CBOW-Model und das Model ratet der Targetwort. Die zwei Modelle besitzen die gleiche Anzahl an Schichten. Das CBOW-Model ist ein umgedrehtes SKIP-gram-Model, jedoch die Eingabe besteht aus $\emph{w}$-Viele Vektoren statt nur eins. Als nächstes stellt die \ref{cbow} Abbildung die beschriebene Struktur.
+Umgekehrt fließen bei dem CBOW-Model die Kontextwörter als Eingabe, während das Targetwort geliefert wird. Die zwei Modelle besitzen die gleiche Anzahl an Schichten. Das CBOW-Modell ist ein umgedrehtes SKIP-gram-Modell, jedoch besteht die Eingabe aus $\emph{w}$-Viele Vektoren statt nur einem, wo $\emph{w}$ das Kontextfenster darstellt. Als nächstes stellt \cref{cbow} die beschriebene Struktur dar.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{images/CBOW_Model.png}
+	\includegraphics[scale=0.6]{images/CBOW_Model.png}
 	\caption{CBOW Word2Vec Model}
 	\label{cbow}
 \end{figure}
 
-Die Struktur des CBOW-Models besteht wieder aus eine Matrix für das Embedding der Target- und Kontextwörter. Die größe der Matrizen hängt von der ausgewählten Hyperparameter und die Größe des Datensatzes. Die Anzahl der verwendeten Inputvektoren entspricht die größe des gesetzten Window (Kontextfenster).
-
-\subsection{Implementierung}
+Die Struktur des CBOW-Modells besteht wieder aus einer Matrix für das Embedding der Target- und Kontextwörter. Die Größe der Matrizen hängt von den ausgewählten Hyperparametern und der Größe des Datensatzes ab. Die Anzahl der verwendeten Inputvektoren entspricht der Größe des gesetzten Fensters (Kontextfenster).

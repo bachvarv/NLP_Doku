@@ -1,8 +1,16 @@
+\inputencoding{latin1}
 \chapter{Einleitung und Problemstellung}
 
-Begonnen werden soll mit einer Einleitung zum Thema, also Hintergrund und Ziel erläutert werden.
+In dieser Arbeit wird tief in der Natural-Language-Processing Sphere eingestiegen. Das Ziel ist, die Möglichkeiten der Transformer und BERT zu untersuchen und daraus ein Modell zu entwickeln, das die Aufgabe \text{\quotedblbase}Übersetzung in einfache Sprache mit Hilfe von Transformern\text{\quotedblbase} angeht. Die Idee ist, vorhandene Strukturen von Transformern und BERT vorzustellen und deren Anwendebereich zu erweitern. Es existieren bereits unterschiedliche Transformer Modelle, die für die Übersetzung angewendet werden, z.B. \cite{NMT:20}, \cite{NMT&ATT:22} und \cite{NMT:2017}, um einige Beispiele zu nennen.
 
-Weiterhin wird das vorliegende Problem diskutiert: Was ist zu lösen, warum ist es wichtig, dass man dieses Problem löst und welche Lösungsansätze gibt es bereits. Der Bezug auf vorhandene oder eben bisher fehlende Lösungen begründet auch die Intention und Bedeutung dieser Arbeit. Dies können allgemeine Gesichtspunkte sein: Man liefert einen Beitrag für ein generelles Problem oder man hat eine spezielle Systemumgebung oder ein spezielles Produkt (z.B. in einem Unternehmen), woraus sich dieses noch zu lösende Problem ergibt.
+Die Aufgabe, die mit dieser Ausarbeitung gestellt wird, ist ein Übersetzungs-modell zu implementieren, das komplexere Sätze in einfache umwandelt. Im Mittelpunkt der Arbeit stehen Transformer und BERT, weitere Transformer-ähnliche Modelle werden in dieser Ausarbeitung nicht betrachtet (z.B. RoBERTa, Electra). Zum Trainieren der Modelle wurde ein Hochleistungsrechner auf dem 'Elweritsch'-Cluster an der TU Kaiserslautern \cite{AHRP:2022} verwendet.
 
-Im weiteren Verlauf wird die Problemstellung konkret dargestellt: Was ist spezifisch zu lösen? Welche Randbedingungen sind gegeben und was ist die Zielsetzung? Letztere soll das
-beschreiben, was man mit dieser Arbeit (mindestens) erreichen möchte.
+Die Arbeit beginnt mit einer Einleitung in Wortvektorrepräsentation. Die Kapitel vier und fünf befassen sich mit der Struktur und Implementierung des klassischen Transformers beziehungsweise BERT. Im letzten Kapitel befinden sich die Analyse und das Ergebnis. 
+%Schließlich können alle zusätzliche Abbildungen und Trainingsergebnisse im Anhang gefunden werden.
+
+%Begonnen werden soll mit einer Einleitung zum Thema, also Hintergrund und Ziel erläutert werden.
+%
+%Weiterhin wird das vorliegende Problem diskutiert: Was ist zu lösen, warum ist es wichtig, dass man dieses Problem löst und welche Lösungsansätze gibt es bereits. Der Bezug auf vorhandene oder eben bisher fehlende Lösungen begründet auch die Intention und Bedeutung dieser Arbeit. Dies können allgemeine Gesichtspunkte sein: Man liefert einen Beitrag für ein generelles Problem oder man hat eine spezielle Systemumgebung oder ein spezielles Produkt (z.B. in einem Unternehmen), woraus sich dieses noch zu lösende Problem ergibt.
+%
+%Im weiteren Verlauf wird die Problemstellung konkret dargestellt: Was ist spezifisch zu lösen? Welche Randbedingungen sind gegeben und was ist die Zielsetzung? Letztere soll das
+%beschreiben, was man mit dieser Arbeit (mindestens) erreichen möchte.

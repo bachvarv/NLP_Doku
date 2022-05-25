@@ -1,8 +1,18 @@
-\begin{thebibliography}{Hub21b}
+\begin{thebibliography}{MTLM15}
+
+\bibitem[Ali]{Ali:19}
+{\sc Ali, Zafar}: {\em A simple Word2vec tutorial}.
 
 \bibitem[AS]{d2l:21}
 {\sc Amazon} \btxandlong{}\ {\sc Google Scientists}: {\em Dive into Deep
   Learning}.
+
+\bibitem[Bro]{BLEU:17}
+{\sc Brownlee, Jason}: {\em A Gentle Introduction to Calculating the BLEU Score
+  for Text in Python}.
+
+\bibitem[dee19]{bert_based:19}
+{\sc deepset}: {\em German BERT(aka "bert-base-german-cased")}, 2019.
 
 \bibitem[Hub21a]{BERTMM:21}
 {\sc Hub, TensorFlow}: {\em BERT multi cased Model: L=12, H=768, A=12}, 2021.
@@ -20,9 +30,36 @@
 {\sc Merity, Stephen}: {\em The WikiText Long Term Dependency Language Modeling
   Dataset}.
 
-\bibitem[Rot00]{denis_Transformer:02}
+\bibitem[MTLM15]{NMT:2017}
+{\sc Minh-Thang~Luong, Hieu~Pham} \btxandlong{}\ {\sc Christopher~D. Manning}:
+  {\em Effective Approaches to Attention-based Neural Machine Translation}.
+\newblock Stanford Publication, 2015.
+
+\bibitem[Rot21]{denis_Transformer:02}
 {\sc Rothman, Denis}: {\em Transformer for Natural Language Processing}.
-\newblock TODO:, 1000.
+\newblock Packt Publishing Ltd, 2021.
+
+\bibitem[Ten]{transfered_learning:22}
+{\sc Tensorflow}: {\em Transfer learning and fine-tuning}.
+
+\bibitem[Ten22a]{BERT_Pre:22}
+{\sc Tensorflow}: {\em Classify text with BERT}, 2022.
+
+\bibitem[Ten22b]{BERT_Fine:22}
+{\sc Tensorflow}: {\em Fine-tuning a BERT model}, 2022.
+
+\bibitem[{Ten}22c]{NMT&ATT:22}
+{\sc {Tensorflow.com}}: {\em Neural Machine Translation with Attention}, 2022.
+
+\bibitem[Uni]{GloVe:14}
+{\sc University, Stanfor}: {\em GloVe: Global Vectors for Word Representation}.
+
+\bibitem[uPR]{Malte:2019}
+{\sc Pratik~Ratadiya, Adiya~Malte~und}: {\em Evolution of Transfer Learning in
+  Natural Language Processing}.
+
+\bibitem[uTM]{AHRP:2022}
+{\sc TU~Mainz, TU-Kaiserslauter~und}: {\em Elweritsch: Hochleistungsrechner}.
 
 \bibitem[Vas17]{Vaswani:2017}
 {\sc Vaswanni, Ashish}: {\em Attention Is All You Need}.
@@ -35,6 +72,9 @@
 \bibitem[Wie21]{CO:19}
 {\sc Wierenga, Rick}: {\em An Empirical Comparison of Optimizers for Machine
   Learning Models}, 2021.
+
+\bibitem[Wik]{weighted_geometric_mean:22}
+{\sc Wikipedia}: {\em Weighted geometric mean}.
 
 \bibitem[Zhu20]{NMT:20}
 {\sc Zhu, Jinhua}: {\em Incorporating BERT into Neural Machine Translation}.

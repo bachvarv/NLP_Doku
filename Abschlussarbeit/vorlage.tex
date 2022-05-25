@@ -7,7 +7,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[envcountsame,envcountchap, deutsch]{i-studis}
+\documentclass[envcountsame,envcountchap, deutsch, ngerman]{i-studis}
 
 \usepackage{makeidx}         	% Index
 \usepackage{multicol}        	% Zweispaltiger Index
@@ -34,11 +34,11 @@
 %%-----------------------------------------------------
 \usepackage{color}				% Farbverwaltung
 %\usepackage{ngerman} 			% Neue deutsche Rechtsschreibung
-\usepackage[english, ngerman]{babel}
+\usepackage[ngerman]{babel}
 \usepackage{enumitem}
+\usepackage{float}
 %\usepackage[latin1]{inputenc} 	% Erm�glicht Umlaute-Darstellung
 \usepackage[utf8]{inputenc}  	% Erm�glicht Umlaute-Darstellung unter Linux (je nach verwendetem Format)
-
 %-----------------------------------------------------
 \usepackage{listings} 			% Code-Darstellung
 \lstset
@@ -71,17 +71,19 @@
 \usepackage{bibgerm}
 \usepackage{array}
 \usepackage{caption}
-\hyphenation{Ele-men-tar-ob-jek-te  ab-ge-tas-tet Aus-wer-tung House-holder-Matrix Le-ast-Squa-res-Al-go-ri-th-men} 		% Weitere Silbentrennung bei Bedarf angeben
+\usepackage{subcaption}
+\usepackage[subsubsection]{placeins}
+
+\hyphenation{Ele-men-tar-ob-jek-te  ab-ge-tas-tet Aus-wer-tung House-holder-Matrix Le-ast-Squa-res-Al-go-ri-th-men} 		% Weitere Silbentrennung bei Bedarfangeben
 \setlength{\textheight}{1.1\textheight}
 \pagestyle{myheadings} 			% Erzeugt selbstdefinierte Kopfzeile
 \makeindex 						% Index-Erstellung
-
-
 %--------------------------------------------------------------------------
+\usepackage{cleveref}
 \begin{document}
 %------------------------- Titelblatt -------------------------------------
-\title{Natural Language Processing und Text übersetzung}
-\subtitle{Natural Language Processing and Text Translation}
+\title{Übersetzung in einfache Sprache mit Hilfe von Transformern}
+\subtitle{Translation into simple language with the help of transformers}
 %---- Die Art der Dokumentation kann hier ausgew�hlt werden---------------
 %\project{Bachelor-Projektarbeit}
 %\project{Bachelor-Abschlussarbeit}
@@ -93,7 +95,7 @@
 \supervisor{Prof. Dr. Hans Beise} 		% Betreuer der Arbeit
 \author{Bachvarov, Vladislav} 							% Autor der Arbeit
 \address{Trier,} 							% Im Zusammenhang mit dem Datum wird hinter dem Ort ein Komma angegeben
-\submitdate{Abgabedatum} 				% Abgabedatum
+\submitdate{25.05.2022} 				% Abgabedatum
 %\begingroup
 %  \renewcommand{\thepage}{title}
 %  \mytitlepage
@@ -107,7 +109,7 @@
 %--------------------------------------------------------------------------
 \frontmatter 
 %--------------------------------------------------------------------------
-\input{chapters/Vorwort}				% Vorwort (optional)
+%\input{chapters/Vorwort}				% Vorwort (optional)
 \input{chapters/Kurzfassung} 			% Kurzfassung Deutsch/English
 \tableofcontents 						% Inhaltsverzeichnis
 %\listoffigures 							% Abbildungsverzeichnis (optional)
@@ -116,17 +118,20 @@
 \mainmatter                        		% Hauptteil (ab hier arab. Seitenzahlen)
 %--------------------------------------------------------------------------
 % Die Kapitel werden in separaten .tex-Dateien abgelegt und hier eingebunden.
+
 \input{chapters/EinleitungProblemstellung}
+\inputencoding{utf8}
 \include{chapters/Word2Vec}
 \input{chapters/Glove}
 \input{chapters/Transformer}
 \input{chapters/Bert}
 \input{chapters/NMT_Model}
-\include{chapters/Visualization}
 %\input{chapters/WeitereKapitel}
 %\input{chapters/Bausteine}
 %\input{chapters/Beispiel}
+\inputencoding{latin1}
 \input{chapters/ZusammenfassungAusblick}
+\inputencoding{utf8}
 % ...
 %--------------------------------------------------------------------------
 \backmatter                        		% Anhang
@@ -136,8 +141,9 @@
 %--------------------------------------------------------------------------
 \printindex 							% Index (optional)
 %--------------------------------------------------------------------------
-\begin{appendix}						% Anh�nge sind i.d.R. optional
-   \include{chapters/Glossar}			% Glossar   
+\begin{appendix}
+	%\include{chapters/Visualization}						% Anh�nge sind i.d.R. optional
+   %\include{chapters/Glossar}			% Glossar   
    \include{chapters/Selbststaendigkeitserklaerung}
    	% Selbstst�ndigkeitserkl�rung
 \end{appendix}

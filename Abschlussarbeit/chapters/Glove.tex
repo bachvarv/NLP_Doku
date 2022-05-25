@@ -1,24 +1,23 @@
-\chapter{Glove}
+\chapter{GloVe}
 
-\section{The GloVe Method}
+Die Idee von \textbf{Glo}bal \textbf{Ve}ctors ist es, den Sinn hinter einem Wort in numerischer Vektorform darzustellen. GloVe ist eine weitere Möglichkeit neben word2vec(\cref{word2vec}) wie man Wörter oder sogar ganze Texte als Vektoren repräsentiert.
 
-Der Vorfall von Wörtern ist der Hauptquelle von Information für unsupervised Learning zum Lernen von Wortrepräsentation. Trotz der Zahlreiche Existenz von Algorithmen ist die Hauptfrage, wie man Sinngehalt aus den Statistiken hearuszieht und wie die resultierende Vectorrepräsentation von Wörter dieser Sinn spiegelt.
-
-Wir führen einige Definitionen auf. Die Matrix der Word-Word-co-occurrence notieren wir mit \textbf{$X$} und ein Eintrag in der Matrix mit \textbf{$X_{ij}$}. Der Wert \textbf{$X_{ij}$} stellt dar, wie oft das Wort \textit{j} in dem Kontext vom Wort \textit{i} vorkommt. Weiterhin beschreibt die Einheit \textbf{$X_i$} die Anzahl des Vorkommens eines beliebigen Wortes in dem Kontext vom Wort \textit{i} und ist in Gleichung \ref{x_i} definiert:
+\section{GloVe-Methode}
+Einige Variablen werden zuerst eingeleitet. Die Matrix der Word-Word-co-occu-rrence wird mit \textbf{$X$} notiert und eine beliebige Komponente in der Matrix mit \textbf{$X_{ij}$}. Der Wert \textbf{$X_{ij}$} stellt dar, wie oft das Wort \textit{j} in dem Kontext vom Wort \textit{i} vorkommt. Weiterhin beschreibt die Einheit \textbf{$X_i$} die Anzahl des Vorkommens eines beliebigen Wortes in dem Kontext vom Wort \textit{i} und ist in der folgenden \cref{x_i} definiert:
 
 \begin{equation}
-	X_i = \sum_{k} X_{ik}.
+	X_i = \sum_{k} X_{ik}. \cite{GloVe:14}
 	\label{x_i}
 \end{equation}
 
-Schließlich definieren wir die Einheit \textbf{$P_{ij}$}, die die Wahrscheinlich bechreibt, dass ein Wort \textit{j} in dem Kontext vom Wort \textit{i} vorkommt. Die Formel ist in der Gleichung \ref{p_ij} aufgeführt:
+Schließlich definieren wir die Einheit \textbf{$P_{ij}$}, die beschreibt, wie hoch die Wahrscheinlichkeit ist, dass ein Wort \textit{j} in dem Kontext vom Wort \textit{i} vorkommt. Die Formel ist in der \cref{p_ij} aufgeführt:
 
 \begin{equation}
-	P_{ij} = P(j|i) = \frac{X_{ij}}{X_i}.
+	P_{ij} = P(j|i) = \frac{X_{ij}}{X_i}. \cite{GloVe:14}
 	\label{p_ij}
 \end{equation}
 
-Ein kleines Beispiel wird angegeben, damit es verstanden werden kann, wie bestimmte Aspekte aus der geimeinsammen Auftreten gewonnen werden können. Es werden zwei Wörter \textit{i} und \textit{j} betrachtet, die zur einer Menge gehören, für das Beispiel ist das der Thermodynamischenzustand. Nehmen wir die Wörter \textit{$i = ice$} ud \textit{$j = steam$}. Die Beziehun der beiden Wörter kann so untersucht werden, indem ihre Relation mit anderen Probewörtern \textit{k} berechnet wird. Für Wörter, die in direkter Bezug zu \textit{$i = ice$} stehen, erwarten wir, dass das Verhältnis $\frac{P_{ik}}{P_{jk}}$ groß ist. Zum Beispiel wird das Wort \textit{$k = solid$} betrachtet. Analog bei Wörter, die näher zu \textit{$j = steam$} sind, erhalten wir einen kleineren Wert des Bruchs $\frac{P_{ik}}{P_{jk}}$ - in diesem Fall nehmen wir das Wort \textit{$k = gas$}. Selbstverständlich ist das Verhältnis des Bruchs bei Wörter die entweder zu beiden Wörtern \textit{i, j} in Bezug stehen oder solchen zu keinem nah an eins. Die Tabelle stellt das Verhältnis zwischen den Wörtern dar.
+Ein kleines Beispiel wird angegeben, damit verstanden werden kann, wie bestimmte Aspekte aus dem gemeinsamen Auftreten von Wörtern gewonnen werden können. Es werden zwei Wörter \textit{i} und \textit{j} betrachtet, die in einem Corpus vorkommen. Das Beispiel stammt aus dem Artikel \cite{GloVe:14} und ist aus dem Themenbereich des thermodynamischen Zustands. Nehmen wir die Wörter \textit{$i = ice$} und \textit{$j = steam$}. Die Beziehung der beiden Wörter kann so untersucht werden, indem die Relation mit anderen Probewörtern \textit{k} berechnet wird. Für Wörter, die in direktem Bezug zu \textit{$i = ice$} stehen, erwarten wir, dass das Verhältnis $\frac{P_{ik}}{P_{jk}}$ groß ist, zum Beispiel wenn das Wort \textit{$k = solid$} gewählt wird. Analoge Beziehung kann bei Wörtern betrachtet werden, die näher an Bedeutung zu \textit{$j = steam$} stehen. In solchen Fällen werden wir einen kleineren Wert des Bruchs $\frac{P_{ik}}{P_{jk}}$ erhalten - zum Beispiel wählen wir das Wort \textit{$k = gas$}. Selbstverständlich ist der Wert des Bruchs gleich eins, wenn das Wort \textit{k} zu beiden Wörtern \textit{i, j} in Korrelation steht, oder wenn sich keine Korrelation ergibt. Als Beispiel können wir das Wort \textit{$k = sun$} wählen. Die \cref{ice_steam_tab} stellt das Verhältnis zwischen den Wörtern dar:
 
 	\begin{table}[]\label{tab_1}
 		\centering
@@ -28,56 +27,58 @@ Ein kleines Beispiel wird angegeben, damit es verstanden werden kann, wie bestim
 			P(k|steam)             & 2.2\times 10^{-5} & 7.8\times 10^{-4} & 2.2\times 10^{-3} & 1.8\times 10^{-5} \\
 			P(k|ice)/P(k|steam)    & 8.9                                                 & 8.5\times 10^{-2} & 1.36                                                & 0.96                                               
 		\end{tabular}
-		\captionof{table}{Tabelle von dem Vorkommen der beiden Wörter \textit{ice} und \textit{steam}}\label{ice_steam_tab}
+		\captionof{table}{Tabelle von dem Vorkommen der beiden Wörter \textit{ice} und \textit{steam} \cite{GloVe:14}}\label{ice_steam_tab}
 	\end{table}
+ 
+Die Erwartungen werden durch die \cref{ice_steam_tab} gerechtfertigt. Die Rate erlaubt uns, die Verhältnisse zwischen den einzelnen Wörtern besser zu verstehen. Mit Hilfe des Bruches wird unterschieden, wie die Wörter zueinander stehen, im Gegensatz zu der einfachen Wahrscheinlichkeit.
 
-In der Tabelle \ref{ice_steam_tab} wird die Beziehung zwischen die Wörter \textit{ice} und \textit{steam} dargestellt. Die Erwartungen werden durch die Tabelle gerechtfertigt. Die Rate erlaubt uns besser die Verhältnisse zwischen die einzelnen Wörter zu verstehen. Mit Hilfer des Bruches werden besser unterschieden, wie die Wörter zueinander stehen, im Vergleich zu der einfachen Wahrscheinlichkeit.
-
-Die oben genannten Argumente ergeben, dass der Anfang von Word-Vector-Learning mit der Rate des gemeinsamen Auftretens starten soll, anstatt die Wahrscheinlichkeiten selbst. Zu betrachten ist, dass die Kookurenzswahrscheinlichkeit hängt von drei Eingagnsgrößen ab - \textit{i}, \textit{j}, \textit{k}. Die Algemeinform der Funktion ist in der Gleichung \ref{alg_f} angegeben:
+Zu betrachten ist, dass die Wahrscheinlichkeit der Koinzidenz von drei Eingangsgrößen \textit{i}, \textit{j}, \textit{k}, abhängt. Die Allgemeinform der Funktion ist in der \cref{alg_f} angegeben:
 
 \begin{equation}
-	F(w_i, w_j, \~w_k) = \frac{P_{ik}}{P_{jk}},
+	F(w_i, w_j, \~w_k) = \frac{P_{ik}}{P_{jk}} \cite{GloVe:14}.
 	\label{alg_f}
 \end{equation}
 
-mit Wortvektoren \textit{w} $\in$ $\mathbb{R^d}$ und andere Wortvektoren \textit{\~w} $\in$ $\mathbb{R^d}$. In der Gleichung ergibt sich die Rechte Seite aus dem Korpus. F hängt in diesem Fall von den drei Vektoren $w_i, w_j, \~w_k$ ab. F wird demnächst wegen der hohen Variation der Formel angepasst. Zuerst ist es gewünscht, die Information aus der Rate in Word-Vector-Raum darzustellen. Da Vektorräume ursprünglich linear sind, kann dies in einem Vektordiferenz erfolgen. Auf dieser wird der Fakus nur auf die Funktionen fallen, die von der Diferenz von den zwei Vektoren abhängen. Die Änderung ergibt sich in Gleichung \ref{f_dif}.
+Die Wortvektoren für untersuchte Wörter \textit{i,j} sind durch \textit{w} $\in$ $\mathbb{R^d}$ gegeben und das betrachtete Wort {k} ist mit Vektor \textit{\~w} $\in$ $\mathbb{R^d}$ repräsentiert. In der Gleichung entsteht die rechte Seite aus dem Corpus (Vocabulary). F hängt in diesem Fall von den drei Vektoren $w_i, w_j, \~w_k$ ab. F wird im nächsten Schritt wegen der hohen Variation der Formel angepasst. Zuerst ist es gewünscht, die Information aus der Rate in Word-Vector-Raum darzustellen. Da Vektorräume ursprünglich linear sind, kann dies in einer Vektordifferenz erfolgen. Somit fällt der Fokus nur auf die Funktionen, die von der Differenz der zwei Vektoren abhängen. Die Änderung wird aus der \cref{f_dif} ersichtlich.
 
 \begin{equation}
-F((w_i - w_j), \~w_k) = \frac{P_{ik}}{P_{jk}}.
+F((w_i - w_j), \~w_k) = \frac{P_{ik}}{P_{jk}} \cite{GloVe:14}.
 \label{f_dif}
 \end{equation}
 
-Aus der Gleichung ist zu entnehmen, dass die Parameter von F Vectoren sind, während die Rechte einen Skalar ist. Währen F als eine komplexere Funktion, die von einem Neuronalen Netzt parametriesiert werden kann, genommen werden kann, würde das die Linearstruktur der Formel verschleiern. Es wird das Skalarprodukt genommen, damit das vermieden wird. Die Formel \ref{f_dot} stellt die Änderung dar.
+Für die Gleichung ist es zu erwähnen, dass die Parameter von F Vektoren sind, während die rechte Seite ein Skalar ist. Während \textit{F} als eine komplexere Funktion, die von einem neuronalen Netz parametrisiert werden kann, genommen werden kann, würde das die Linearstruktur der Formel verschleiern. Es wird das Skalarprodukt genommen, damit die Verschleierung vermieden wird. Die \cref{f_dot} stellt die Änderung dar.
 \begin{equation}
-F((w_i - w_j)^T\~w_k) = \frac{P_{ik}}{P_{jk}}.
+F((w_i - w_j)^T\~w_k) = \frac{P_{ik}}{P_{jk}} \cite{GloVe:14}.
 \label{f_dot}
 \end{equation}
 
-In der word-word Kookuranzmatrizen erfolgt der Unterschied zwischen Wort und Kontextwort willkürlich. Die Formel für F muss es erlauben, die zwei Rollen beliebig zu tauschen. Das heißt also nicht nur $w \leftrightarrow \~w$ auszutauschen, sondern auch $X \leftrightarrow X^T$. Um diese Symmetrie zu verschaffen, sind zwei einfache Schritte erfordert. Zuerst muss vergewissert werden, dass die Formel homomorphisch zwischen die Gruppen ($\mathbb{R}$, +) und ($\mathbb{R}_{>0}$, $\times$) ist:
+Laut \cite{GloVe:14} erfolgt in der word-word Koinzidenzmatrizen der Unterschied zwischen Wort und Kontextwort willkürlich. Die Formel für F muss erlauben, dass zwei Rollen beliebig ausgetauscht werden können. Das heißt also nicht nur $w \leftrightarrow \~w$ auszutauschen, sondern auch $X \leftrightarrow X^T$. Um diese Symmetrie zu verschaffen, sind zwei einfache Schritte erforderlich. Zuerst muss sichergestellt werden, dass die Formel homomorphisch zwischen den Gruppen ($\mathbb{R}$, +) und ($\mathbb{R}_{>0}$, $\times$) ist:
 
 \begin{equation}
-F((w_i - w_j)^T\~w_k) = \frac{F(w_i^T\~w_k)}{F(w_j^T\~w_k)},
+F((w_i - w_j)^T\~w_k) = \frac{F(w_i^T\~w_k)}{F(w_j^T\~w_k)} \cite{GloVe:14},
 \label{f_hom}
 \end{equation}	
 
-was nach Gleichung \ref{f_dot} wie folgt gelöst wird:
+was nach \cref{f_dot} wie folgt aussieht:
 
 \begin{equation}
-F(w_i^T\~w_k) = P_{ik} =\frac{X_{ik}}{X_i}.
+F(w_i^T\~w_k) = P_{ik} =\frac{X_{ik}}{X_i} \cite{GloVe:14}.
 \label{f_hom_res}
 \end{equation}
 
-Die Lösung von \ref{f_hom} ist $F = exp$, oder auch:
+Die Lösung von \cref{f_hom} ist $F = exp$, oder auch:
 
 \begin{equation}
-w_i^T\~w_k = \log (P_{ik}) = \log(X_{ik}) - \log(X_i).
+w_i^T\~w_k = \log (P_{ik}) = \log(X_{ik}) - \log(X_i) \cite{GloVe:14}.
 \label{f_hom_sol}
 \end{equation}
 
-Zunächst wird die Gleichung umgestellt, jedoch werden einige Konstanten, oder Bias, eingeführt. Es könnte der Wert von $\log(X_i)$ in einer Konstante $b_i$ umgewandelt werden. Schließlich wird die Konstante $b_k$ addiert, damit die Symmetrie erhalten wird. Die vereinfachte Formel ist in Gleichung \ref{f_simp} gegeben:
+Zunächst wird die Gleichung umgestellt, jedoch werden einige Konstanten eingeführt. Es könnte der Wert von $\log(X_i)$ in einer Konstante $b_i$ umgewandelt werden. Schließlich wird die Konstante $b_k$ addiert, damit die Symmetrie erhalten wird. Die vereinfachte Formel ist in der \cref{f_simp} gegeben:
 
 \begin{equation}
-w_i^T\~w_k + b_i + \~b_k = \log(X_{ik}).
+w_i^T\~w_k + b_i + \~b_k = \log(X_{ik}) \cite{GloVe:14}.
 \label{f_simp}
 \end{equation}
+
+Nach der Einführung in Wortvektoren steigen wir in den nächsten Kapiteln ins Hauptthema Transformer ein. Die Folgekapitel erläutern die Struktur und Implementierung von dem Transformer und \textbf{B}idirectional \textbf{E}ncoder \textbf{R}epresentation from \textbf{T}ransformer (oder kurz BERT). Schließlich wird ein Modell vorgestellt, das versucht die Hauptaufgabe dieser Ausarbeitung zu lösen.
 

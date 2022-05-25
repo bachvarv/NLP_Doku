@@ -1,50 +1,54 @@
-This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: vorlage.aux
+Reallocating 'name_of_file' (item size: 1) to 22 items.
 A level-1 auxiliary file: chapters/Word2Vec.aux
-A level-1 auxiliary file: chapters/Visualization.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: geralpha.bst
-A level-1 auxiliary file: chapters/Glossar.aux
+Reallocating 'name_of_file' (item size: 1) to 10 items.
+Reallocating 'name_of_file' (item size: 1) to 27 items.
+A level-1 auxiliary file: chapters/Visualization.aux
+Reallocating 'name_of_file' (item size: 1) to 43 items.
 A level-1 auxiliary file: chapters/Selbststaendigkeitserklaerung.aux
 Database file #1: literatur.bib
-You've used 10 entries,
+You've used 22 entries,
             2768 wiz_defined-function locations,
-            650 strings with 6045 characters,
-and the built_in function-call counts, 2968 in all, are:
-= -- 287
-> -- 102
-< -- 8
-+ -- 31
-- -- 28
-* -- 176
-:= -- 467
-add.period$ -- 14
-call.type$ -- 10
-change.case$ -- 42
-chr.to.int$ -- 9
-cite$ -- 10
-duplicate$ -- 140
-empty$ -- 264
-format.name$ -- 46
-if$ -- 644
-int.to.chr$ -- 2
+            694 strings with 6969 characters,
+and the built_in function-call counts, 6370 in all, are:
+= -- 613
+> -- 209
+< -- 19
++ -- 63
+- -- 56
+* -- 369
+:= -- 960
+add.period$ -- 27
+call.type$ -- 22
+change.case$ -- 91
+chr.to.int$ -- 19
+cite$ -- 22
+duplicate$ -- 298
+empty$ -- 595
+format.name$ -- 95
+if$ -- 1403
+int.to.chr$ -- 4
 int.to.str$ -- 0
-missing$ -- 8
-newline$ -- 37
-num.names$ -- 30
-pop$ -- 86
+missing$ -- 10
+newline$ -- 74
+num.names$ -- 66
+pop$ -- 206
 preamble$ -- 1
-purify$ -- 62
+purify$ -- 135
 quote$ -- 0
-skip$ -- 138
+skip$ -- 308
 stack$ -- 0
-substring$ -- 72
-swap$ -- 28
-text.length$ -- 8
-text.prefix$ -- 8
+substring$ -- 158
+swap$ -- 64
+text.length$ -- 19
+text.prefix$ -- 17
 top$ -- 0
-type$ -- 76
+type$ -- 172
 warning$ -- 0
-while$ -- 22
-width$ -- 14
-write$ -- 98
+while$ -- 47
+width$ -- 27
+write$ -- 201
